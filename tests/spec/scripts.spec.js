@@ -56,8 +56,6 @@ describe('scripts task', () => {
   })
 
   describe('gulp js:webpack', function () {
-    this.timeout(15000)
-
     it('the `gulp js:webpack` command should be generate a non minified file', done => {
       exec('gulp js:webpack', { cwd: __dirname }, () => {
         const expected = readFile('expected/expected-webpack.js')
