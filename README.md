@@ -1,3 +1,3 @@
 # autoamazing
 
-Atumatization tasks with Gulpjs and Npm scripts
+> Atumatization tasks with Gulpjs and npm scripts
