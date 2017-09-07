@@ -3,7 +3,7 @@
 <br/>
 <br/>
 
-# autoamazing
+# autoamazing [![Code Climate](https://codeclimate.com/github/nandomoreirame/autoamazing/badges/gpa.svg)](https://codeclimate.com/github/nandomoreirame/autoamazing) [![Issue Count](https://codeclimate.com/github/nandomoreirame/autoamazing/badges/issue_count.svg)](https://codeclimate.com/github/nandomoreirame/autoamazing)
 
 :tropical_drink: Automatizate amazing tasks for front-end with Gulpjs
 
