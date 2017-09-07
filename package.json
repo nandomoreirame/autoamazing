@@ -1,0 +1,57 @@
+{
+  "name": "autoamazing",
+  "version": "0.0.1",
+  "description": "",
+  "main": "tasks.js",
+  "scripts": {
+    "clean": "rimraf lib/*",
+    "build": "npm run clean && babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+    "test": "mocha tests/spec/*.spec.js --require babel-register",
+    "test:tdd": "mocha tests/spec/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandomoreirame/autoamazing.git"
+  },
+  "keywords": [],
+  "author": "Fernando Moreira <nandomoreira.me@gmail.com> (https://nandomoreira.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nandomoreirame/autoamazing/issues"
+  },
+  "homepage": "https://github.com/nandomoreirame/autoamazing#readme",
+  "dependencies": {
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
+    "require-dir": "^0.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.6.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "mocha": "^3.5.0",
+    "nyc": "^11.2.1",
+    "rimraf": "^2.6.1"
+  }
+}
