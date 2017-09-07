@@ -15,7 +15,7 @@
     "test:tdd": "mocha tests/spec/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test",
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run build:all"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
