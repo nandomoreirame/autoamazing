@@ -4,7 +4,7 @@
 <br/>
 
 # autoamazing
-[![Build Status](https://travis-ci.org/nandomoreirame/autoamazing.svg?branch=master)](https://travis-ci.org/nandomoreirame/autoamazing)  [![Code Climate](https://codeclimate.com/github/nandomoreirame/autoamazing/badges/gpa.svg)](https://codeclimate.com/github/nandomoreirame/autoamazing) [![Issue Count](https://codeclimate.com/github/nandomoreirame/autoamazing/badges/issue_count.svg)](https://codeclimate.com/github/nandomoreirame/autoamazing)
+[![Build Status](https://travis-ci.org/nandomoreirame/autoamazing.svg?branch=master)](https://travis-ci.org/nandomoreirame/autoamazing) [![Coverage Status](https://coveralls.io/repos/github/nandomoreirame/autoamazing/badge.svg?branch=master)](https://coveralls.io/github/nandomoreirame/autoamazing?branch=master) [![Code Climate](https://codeclimate.com/github/nandomoreirame/autoamazing/badges/gpa.svg)](https://codeclimate.com/github/nandomoreirame/autoamazing) [![Issue Count](https://codeclimate.com/github/nandomoreirame/autoamazing/badges/issue_count.svg)](https://codeclimate.com/github/nandomoreirame/autoamazing)
 
 :tropical_drink: Automatizate amazing tasks for front-end with Gulpjs
 
