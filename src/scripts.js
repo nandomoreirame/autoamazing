@@ -1,6 +1,5 @@
 import plugins from 'gulp-load-plugins'
 import webpack from 'webpack-stream'
-import path from 'path'
 import { merge } from 'lodash'
 import { config } from './helpers/config'
 
