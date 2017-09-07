@@ -14,3 +14,4 @@ ratings:
   - "**.es6"
 exclude_paths:
 - "lib"
+- "tests"
