@@ -1,17 +1,18 @@
 const gulp = require('gulp')
-const tasks = require('../tasks')
+// const task = require('../tasks')
+const task = require('autoamazing')
 const gutil = require('gulp-util')
 
 const env = gutil.env.env || 'development'
 
-tasks.stylesheets(gulp, {
+task.stylesheets(gulp, {
   taskname: 'sass',
   src: 'samples/input/main.sass',
   dest: 'samples/output',
   env: env
 })
 
-tasks.stylesheets(gulp, {
+task.stylesheets(gulp, {
   taskname: 'css',
   src: 'samples/input/main.css',
   dest: 'samples/output',

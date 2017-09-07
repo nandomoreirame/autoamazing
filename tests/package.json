@@ -4,6 +4,6 @@
   "author": "Fernando Moreira <nandomoreira.me@gmail.com> (https://nandomoreira.me)",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "autoamazing": "nandomoreirame/autoamazing"
   }
 }
