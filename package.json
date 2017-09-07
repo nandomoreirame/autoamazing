@@ -17,6 +17,22 @@
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run build"
   },
+  "nyc": {
+    "functions": 90,
+    "lines": 90,
+    "check-coverage": true,
+    "exclude": [
+      "tests/**",
+      "src/**"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nandomoreirame/autoamazing.git"
@@ -45,7 +61,9 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "lodash": "^4.17.4",
-    "require-dir": "^0.3.2"
+    "require-dir": "^0.3.2",
+    "webpack": "^3.5.6",
+    "webpack-stream": "^4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

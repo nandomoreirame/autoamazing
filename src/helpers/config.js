@@ -1,4 +1,7 @@
 import notify from 'gulp-notify'
+import babelrc from './babelrc'
+import eslintrc from './eslintrc'
+import { webpackConfig } from './webpack'
 
 export const config = {
   cssnano: {
@@ -25,5 +28,8 @@ export const config = {
       title: title,
       showFiles: true
     }
-  }
+  },
+  babelrc: babelrc,
+  eslintrc: eslintrc,
+  webpackConfig: webpackConfig
 }

@@ -1,6 +1,6 @@
 import plugins from 'gulp-load-plugins'
 import { merge } from 'lodash'
-import { config } from './config'
+import { config } from './helpers/config'
 
 const $ = plugins()
 

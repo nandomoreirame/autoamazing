@@ -1,6 +1,8 @@
 import plugins from 'gulp-load-plugins'
+import webpack from 'webpack-stream'
+import path from 'path'
 import { merge } from 'lodash'
-import { config } from './config'
+import { config } from './helpers/config'
 
 const $ = plugins()
 
@@ -9,38 +11,34 @@ const defaults = {
   src: ['./src/main.js'],
   dest: './dist',
   env: 'production',
+  sourcemaps: true,
   include: false,
   babel: false,
-  babelConfig: {
-    presets: [
-      [
-        'env',
-        {
-          targets: {
-            browsers: [
-              'last 2 versions',
-              'safari >= 7'
-            ]
-          }
-        }
-      ]
-    ]
-  }
+  babelrc: config.babelrc,
+  webpack: false,
+  webpackConfig: config.webpackConfig
 }
 
 module.exports = (gulp, options, othersTasks = []) => {
+  let webpackConfig
+
   const opts = merge({}, defaults, options)
   const isProduction = opts.env === 'production'
 
+  if (opts.webpack) {
+    webpackConfig = merge({}, opts.webpackConfig)
+  }
+
   gulp.task(opts.taskname, done => gulp.src(opts.src)
     .pipe($.plumber(config.plumber))
-    .pipe($.sourcemaps.init())
+    .pipe(opts.sourcemaps ? $.sourcemaps.init() : $.util.noop())
     .pipe(opts.include ? $.include() : $.util.noop())
-    .pipe(opts.babel ? $.babel(opts.babelConfig) : $.util.noop())
+    .pipe(opts.babel ? $.babel(opts.babelrc) : $.util.noop())
+    .pipe(opts.webpack ? webpack(webpackConfig) : $.util.noop())
     .pipe(isProduction ? $.uglify() : $.util.noop())
     .pipe(isProduction ? $.rename(config.rename) : $.util.noop())
     .pipe($.size(config.size(opts.taskname)))
-    .pipe($.sourcemaps.write('.'))
+    .pipe(opts.sourcemaps ? $.sourcemaps.write('.') : $.util.noop())
     .pipe(gulp.dest(opts.dest))
     .pipe($.plumber.stop()))
 }

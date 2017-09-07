@@ -1,3 +1,4 @@
+const path = require('path')
 const gulp = require('gulp')
 const task = require('../tasks')
 // const task = require('autoamazing')
@@ -41,4 +42,19 @@ task.scripts(gulp, {
   dest: 'samples/output',
   env: env,
   babel: true
+})
+
+task.scripts(gulp, {
+  taskname: 'js:webpack',
+  src: 'samples/input/main-webpack.js',
+  dest: 'samples/output',
+  env: env,
+  sourcemaps: false,
+  webpack: true,
+  webpackConfig: {
+    entry: path.resolve(__dirname, `samples/input/main-webpack.js`),
+    output: {
+      path: path.resolve(__dirname, `./samples/output/`)
+    }
+  }
 })
