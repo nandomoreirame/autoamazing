@@ -1,3 +1,3 @@
 # autoamazing
 
-> Atumatization tasks with Gulpjs and npm scripts
+> :tropical_drink: Automatizate amazing tasks for front-end with Gulpjs
