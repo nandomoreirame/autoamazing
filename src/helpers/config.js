@@ -25,7 +25,7 @@ export const config = {
   },
   size: title => {
     return {
-      title: title,
+      title: `Task ${title}: `,
       showFiles: true
     }
   },

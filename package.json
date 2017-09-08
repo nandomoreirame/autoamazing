@@ -15,7 +15,10 @@
     "test:tdd": "mocha tests/spec/*.spec.js --require babel-register -t 20000 --watch",
     "test:coverage": "nyc npm test",
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "publish:pa": "npm version patch && npm publish",
+    "publish:mi": "npm version minor && npm publish",
+    "publish:ma": "npm version major && npm publish"
   },
   "nyc": {
     "functions": 90,
@@ -46,10 +49,13 @@
   "homepage": "https://github.com/nandomoreirame/autoamazing#readme",
   "dependencies": {
     "babel-preset-env": "^1.6.0",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-combine-mq": "^0.4.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^4.0.0",
+    "gulp-image": "^3.0.0",
     "gulp-include": "^2.3.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.0.0",

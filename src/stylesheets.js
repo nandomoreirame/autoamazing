@@ -36,14 +36,15 @@ module.exports = (gulp, options, othersTasks = []) => {
     sassSettings = merge({}, opts.sassSettings)
   }
 
-  gulp.task(opts.taskname, done => gulp.src(opts.src)
-    .pipe($.plumber(config.plumber))
-    .pipe(opts.sass ? $.sass(sassSettings)
-      .on('error', $.sass.logError) : $.util.noop())
-    .pipe($.combineMq())
-    .pipe(isProduction ? $.cssnano(config.cssnano) : $.util.noop())
-    .pipe(isProduction ? $.rename(config.rename) : $.util.noop())
-    .pipe($.size(config.size(opts.taskname)))
-    .pipe(gulp.dest(opts.dest))
-    .pipe($.plumber.stop()))
+  gulp.task(opts.taskname, othersTasks, done =>
+    gulp.src(opts.src)
+      .pipe($.plumber(config.plumber))
+      .pipe(opts.sass ? $.sass(sassSettings)
+        .on('error', $.sass.logError) : $.util.noop())
+      .pipe($.combineMq())
+      .pipe(isProduction ? $.cssnano(config.cssnano) : $.util.noop())
+      .pipe(isProduction ? $.rename(config.rename) : $.util.noop())
+      .pipe($.size(config.size(opts.taskname)))
+      .pipe(gulp.dest(opts.dest))
+      .pipe($.plumber.stop()))
 }

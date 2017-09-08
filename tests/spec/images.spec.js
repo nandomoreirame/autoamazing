@@ -1,0 +1,15 @@
+import { expect } from 'chai'
+import { readFile } from '../helpers/utils'
+const { exec } = require('child_process')
+
+describe('images task', () => {
+  describe('gulp images', function () {
+    it('the `gulp images` command should be generate a compressed image', done => {
+      exec('gulp images', { cwd: __dirname }, () => {
+        const expected = readFile('expected/expected.png')
+        expect(expected).to.equal(readFile('output/main.png'))
+        done()
+      })
+    })
+  })
+})
