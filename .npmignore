@@ -1,0 +1,13 @@
+# .npmignore
+tests
+src
+*.md
+*.lock
+.babelrc
+.codeclimate.yml
+.editorconfig
+.eslintignore
+.gitignore
+.travis.yml
+deadpool.jpg
+LICENSE
