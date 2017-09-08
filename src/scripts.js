@@ -12,6 +12,15 @@ const defaults = {
   env: 'production',
   sourcemaps: true,
   include: false,
+  includeSettings: {
+    extensions: 'js',
+    includePaths: [
+      `node_modules`,
+      `javascripts`,
+      `scripts`,
+      `js`
+    ]
+  },
   babel: false,
   babelrc: config.babelrc,
   webpack: false,
@@ -20,6 +29,7 @@ const defaults = {
 
 module.exports = (gulp, options, othersTasks = []) => {
   let webpackConfig
+  let includeSettings
 
   const opts = merge({}, defaults, options)
   const isProduction = opts.env === 'production'
@@ -28,10 +38,14 @@ module.exports = (gulp, options, othersTasks = []) => {
     webpackConfig = merge({}, opts.webpackConfig)
   }
 
+  if (opts.include) {
+    includeSettings = merge({}, opts.includeSettings)
+  }
+
   gulp.task(opts.taskname, done => gulp.src(opts.src)
     .pipe($.plumber(config.plumber))
     .pipe(opts.sourcemaps ? $.sourcemaps.init() : $.util.noop())
-    .pipe(opts.include ? $.include() : $.util.noop())
+    .pipe(opts.include ? $.include(includeSettings) : $.util.noop())
     .pipe(opts.babel ? $.babel(opts.babelrc) : $.util.noop())
     .pipe(opts.webpack ? webpack(webpackConfig) : $.util.noop())
     .pipe(isProduction ? $.uglify() : $.util.noop())
