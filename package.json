@@ -11,8 +11,8 @@
     "clean": "rimraf lib/*",
     "build": "npm run clean && babel --out-dir lib src",
     "build:watch": "npm run build -- --watch",
-    "test": "mocha tests/spec/*.spec.js --require babel-register -t 20000",
-    "test:tdd": "mocha tests/spec/*.spec.js --require babel-register -t 20000 --watch",
+    "test": "mocha tests/spec/*.spec.js --require babel-register -t 50000",
+    "test:tdd": "mocha tests/spec/*.spec.js --require babel-register -t 50000 --watch",
     "test:coverage": "nyc npm test",
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run build",
@@ -88,6 +88,7 @@
     "husky": "^0.14.3",
     "mocha": "^3.5.0",
     "nyc": "^11.2.1",
+    "resemblejs": "^2.2.6",
     "rimraf": "^2.6.1"
   }
 }

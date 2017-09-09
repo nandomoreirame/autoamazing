@@ -13,11 +13,19 @@ gulp.task('default', [
   'js:babel'
 ])
 
+task.clean(gulp, {
+  src: ['samples/output/*']
+})
+
 task.stylesheets(gulp, {
   taskname: 'sass',
   src: 'samples/input/main.sass',
   dest: 'samples/output',
-  env: env
+  env: env,
+  sassSettings: {
+    sourcemap: false,
+    sourceComments: false
+  }
 })
 
 task.stylesheets(gulp, {
@@ -33,7 +41,13 @@ task.scripts(gulp, {
   src: 'samples/input/main.js',
   dest: 'samples/output',
   env: env,
-  include: true
+  include: true,
+  includeSettings: {
+    extensions: 'js',
+    includePaths: [
+      `samples/input`
+    ]
+  }
 })
 
 task.scripts(gulp, {
@@ -57,4 +71,15 @@ task.scripts(gulp, {
       path: path.resolve(__dirname, `./samples/output/`)
     }
   }
+})
+
+task.images(gulp, {
+  src: `samples/input/gulp-tasks.png`,
+  dest: `samples/output`,
+  env: 'production'
+})
+
+task.copy(gulp, {
+  src: `samples/input/quote.svg`,
+  dest: `samples/output`
 })

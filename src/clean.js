@@ -5,8 +5,7 @@ const defaults = {
   taskname: 'clean',
   src: ['./src/**/*.js'],
   cleanSettings: {
-    force: true,
-    dryRun: true
+    force: true
   }
 }
 

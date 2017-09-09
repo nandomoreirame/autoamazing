@@ -3,6 +3,10 @@ import { readFile } from '../helpers/utils'
 const { exec } = require('child_process')
 
 describe('scripts task', () => {
+  afterEach(done => {
+    exec('gulp clean', { cwd: __dirname }, () => done())
+  })
+
   describe('gulp js', function () {
     it('the `gulp js` command should be generate a non minified file and sourcemap file', done => {
       exec('gulp js', { cwd: __dirname }, () => {
@@ -60,6 +64,7 @@ describe('scripts task', () => {
       exec('gulp js:webpack', { cwd: __dirname }, () => {
         const expected = readFile('expected/expected-webpack.js')
         expect(expected).to.equal(readFile('output/bundler-main.js'))
+
         done()
       })
     })
@@ -67,7 +72,8 @@ describe('scripts task', () => {
     it('the `gulp js:webpack --env production` command should be generate a minified file', done => {
       exec('gulp js:webpack --env production', { cwd: __dirname }, () => {
         const expected = readFile('expected/expected-webpack.min.js')
-        expect(expected).to.equal(readFile('output/bundler-main.min.js'))
+        expect(expected).to.equal(readFile('output/bundler-main.js'))
+
         done()
       })
     })

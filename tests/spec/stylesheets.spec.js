@@ -3,6 +3,10 @@ import { readFile } from '../helpers/utils'
 const { exec } = require('child_process')
 
 describe('stylesheets task', () => {
+  afterEach(done => {
+    exec('gulp clean', { cwd: __dirname }, () => done())
+  })
+
   describe('gulp css', () => {
     it('the `gulp css` command should be generate a non minified file', done => {
       exec('gulp css', { cwd: __dirname }, () => {

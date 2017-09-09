@@ -5452,6 +5452,10 @@ require-uncached@^1.0.3:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
 
+resemblejs@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/resemblejs/-/resemblejs-2.2.6.tgz#0f9c4da20a787883ec7ddf28f14e57994d1e06bb"
+
 resolve-dir@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/resolve-dir/-/resolve-dir-0.1.1.tgz#b219259a5602fac5c5c496ad894a6e8cc430261e"
