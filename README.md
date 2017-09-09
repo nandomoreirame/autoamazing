@@ -125,7 +125,7 @@ task.images(gulp, {
 
 On your terminal execute: `gulp --tasks`
 
-<img src="/gulp-tasks.png"/>
+<img src="/tests/samples/input/gulp-tasks.png"/>
 
 ## License
 
