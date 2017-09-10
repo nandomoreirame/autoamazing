@@ -21,6 +21,8 @@ const defaults = {
       `js`
     ]
   },
+  concat: false,
+  concatName: 'main.js',
   babel: false,
   babelrc: config.babelrc,
   webpack: false,
@@ -49,6 +51,7 @@ module.exports = (gulp, options, othersTasks = []) => {
       .pipe(opts.include ? $.include(includeSettings) : $.util.noop())
       .pipe(opts.babel ? $.babel(opts.babelrc) : $.util.noop())
       .pipe(opts.webpack ? webpack(webpackConfig) : $.util.noop())
+      .pipe(opts.concat ? $.concat(`${opts.concatName}`) : $.util.noop())
       .pipe((isProduction && !opts.webpack) ? $.uglify() : $.util.noop())
       .pipe((isProduction && !opts.webpack) ? $.rename(config.rename) : $.util.noop())
       .pipe($.size(config.size(opts.taskname)))
